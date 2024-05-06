@@ -46,11 +46,24 @@ void Game::Update() {
 		m_snake.Tick();
 		m_world.Update(m_snake);
 		m_elapsed -= timestep;
+
+		UpdateTextbox();
+
 		if (m_snake.HasLost()) {
-			m_textbox.Add("GAME OVER! Score: " + std::to_string((long long)m_snake.GetScore()));
-			m_snake.Reset();
+			m_snake.LifeLost();
+			if (m_snake.GetLives() == 0)
+			{
+				m_textbox.Add("\nGAME OVER! Score: " + std::to_string((long long)m_snake.GetScore()));
+			}
 		}
+		
 	}
+}
+
+void Game::UpdateTextbox() {
+	m_textbox.Clear();
+	m_textbox.Add("Lives: " + std::to_string(m_snake.GetLives()));
+	m_textbox.Add("\nScore: " + std::to_string(m_snake.GetScore()));
 }
 
 void Game::Render() {

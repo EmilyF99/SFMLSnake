@@ -33,6 +33,7 @@ public:
 	void Tick(); // Update method.
 	void Cut(int l_segments); // Method for cutting snake.
 	void Render(sf::RenderWindow& l_window);
+	void LifeLost();
 private:
 	void CheckCollision(); // Checking for collisions.
 	SnakeContainer m_snakeBody; // Segment vector.

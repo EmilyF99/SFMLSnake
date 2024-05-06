@@ -10,6 +10,7 @@ public:
 	~Game();
 	void HandleInput();
 	void Update();
+	void UpdateTextbox();
 	void Render();
 	Window* GetWindow();
 	sf::Time GetElapsed();

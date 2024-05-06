@@ -19,6 +19,20 @@ void Snake::Reset() {
 	m_lost = false;
 }
 
+void Snake::LifeLost() {
+	m_snakeBody.clear();
+	m_snakeBody.push_back(SnakeSegment(5, 7));
+	m_snakeBody.push_back(SnakeSegment(5, 6));
+	
+	--m_lives;
+	if (!m_lives) {
+		Lose();
+		Reset(); // Optionally reset the snake after losing all lives.
+	}
+	m_lost = false;
+
+}
+
 void Snake::SetDirection(Direction l_dir) { m_dir = l_dir; }
 Direction Snake::GetDirection() { return m_dir; }
 
