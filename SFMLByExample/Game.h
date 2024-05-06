@@ -3,6 +3,7 @@
 #include "Snake.h"
 #include "World.h"
 #include "Textbox.h"
+#include "Files.h"
 
 class Game {
 public:
@@ -22,4 +23,5 @@ private:
 	World m_world;
 	Snake m_snake;
 	Textbox m_textbox;
+	Files m_file;
 };
