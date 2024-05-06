@@ -4,7 +4,7 @@
 #include "Files.h"
 
 Game::Game() : m_window("Snake", sf::Vector2u(800, 600)),
-m_snake(m_world.GetBlockSize()), m_world(sf::Vector2u(800, 600))
+m_snake(m_world.GetBlockSize()), m_world(sf::Vector2u(800, 600)), m_file("scores.txt")
 {
 	m_clock.restart();
 	m_file.LocateFile();
@@ -56,6 +56,10 @@ void Game::Update() {
 			if (m_snake.GetLives() == 0)
 			{
 				m_textbox.Add("\nGAME OVER! Score: " + std::to_string((long long)m_snake.GetScore()));
+
+				Files scoreFile(m_file.GetFileName());
+				scoreFile.LocateFile(); // Ensure the file exists
+				scoreFile.AddScore(m_snake.GetScore()); // Add the score to the file
 			}
 		}
 		

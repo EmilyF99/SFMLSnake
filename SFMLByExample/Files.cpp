@@ -2,7 +2,7 @@
 #include <fstream>
 #include <iostream>
 
-Files::Files() 
+Files::Files(const std::string& fileName) : m_fileName(fileName)
 {
 
 }
@@ -28,5 +28,14 @@ void Files::LocateFile()
         CreateFile();
     }
 }
-void addScore();
-void searchScore();
+void Files::AddScore(int score) {
+    std::ofstream file(m_fileName, std::ios_base::app); // Open file in append mode
+    if (!file.is_open())
+    {
+        std::cerr << "Error: Unable to open file for appending: " << m_fileName << std::endl;
+        return;
+    }
+    file << score << " "; 
+    file.close();
+}
+void SearchScore();
