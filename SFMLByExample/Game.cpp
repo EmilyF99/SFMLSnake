@@ -9,6 +9,8 @@ m_snake(m_world.GetBlockSize()), m_world(sf::Vector2u(800, 600))
 	m_textbox.Setup(5, 14, 350, sf::Vector2f(225, 0));
 	srand(time(nullptr));
 	m_textbox.Add("Seeded random number generator with: " + std::to_string(time(NULL)));
+	m_textbox.Add("\nLives: " + std::to_string(m_snake.GetLives()));
+	m_textbox.Add("\nScore: " + std::to_string(m_snake.GetScore()));
 }
 
 Game::~Game() { }
@@ -45,8 +47,7 @@ void Game::Update() {
 		m_world.Update(m_snake);
 		m_elapsed -= timestep;
 		if (m_snake.HasLost()) {
-			//m_textbox.Add("GAME OVER! Score: "
-				//+ std::to_string((long long)m_snake.GetScore()));
+			m_textbox.Add("GAME OVER! Score: " + std::to_string((long long)m_snake.GetScore()));
 			m_snake.Reset();
 		}
 	}
