@@ -52,15 +52,7 @@ void Game::Update() {
 		UpdateTextbox();
 
 		if (m_snake.HasLost()) {
-			m_snake.LifeLost();
-			if (m_snake.GetLives() == 0)
-			{
-				m_textbox.Add("\nGAME OVER! Score: " + std::to_string((long long)m_snake.GetScore()));
-
-				Files scoreFile(m_file.GetFileName());
-				scoreFile.LocateFile(); // Ensure the file exists
-				scoreFile.AddScore(m_snake.GetScore()); // Add the score to the file
-			}
+			m_snake.LifeLost(m_file);
 		}
 		
 	}

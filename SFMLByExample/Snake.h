@@ -1,6 +1,8 @@
 #pragma once
 #include <vector>
 #include <SFML/Graphics.hpp>
+#include "Textbox.h"
+#include "Files.h"
 
 struct SnakeSegment {
 	SnakeSegment(int x, int y) : position(x, y) {}
@@ -33,7 +35,7 @@ public:
 	void Tick(); // Update method.
 	void Cut(int l_segments); // Method for cutting snake.
 	void Render(sf::RenderWindow& l_window);
-	void LifeLost();
+	void LifeLost(Files& scoreFile);
 private:
 	void CheckCollision(); // Checking for collisions.
 	SnakeContainer m_snakeBody; // Segment vector.
@@ -44,4 +46,6 @@ private:
 	int m_score; // Score.
 	bool m_lost; // Losing state.
 	sf::RectangleShape m_bodyRect; // Shape used in rendering.
+	Files m_file;
+	Textbox m_textbox;
 };

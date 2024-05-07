@@ -1,7 +1,8 @@
 #include "Snake.h"
 #include <SFML/System.hpp>
+#include "Files.h"
 
-Snake::Snake(int l_blockSize) {
+Snake::Snake(int l_blockSize) : m_file("scores.txt"){
 	m_size = l_blockSize;
 	m_bodyRect.setSize(sf::Vector2f(m_size - 1, m_size - 1));
 	Reset();
@@ -19,13 +20,17 @@ void Snake::Reset() {
 	m_lost = false;
 }
 
-void Snake::LifeLost() {
+void Snake::LifeLost(Files& scoreFile) {
 	m_snakeBody.clear();
 	m_snakeBody.push_back(SnakeSegment(5, 7));
 	m_snakeBody.push_back(SnakeSegment(5, 6));
 	
 	--m_lives;
-	if (!m_lives) {
+	if (m_lives == 0) {
+		m_textbox.Add("\nGAME OVER! Score: " + std::to_string((long long)GetScore()));
+
+		scoreFile.LocateFile(); // Ensure the file exists
+		scoreFile.AddScore(GetScore()); // Add the score to the file
 		Lose();
 		Reset(); // Optionally reset the snake after losing all lives.
 	}
