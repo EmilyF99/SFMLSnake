@@ -139,6 +139,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="ColourManager.cpp" />
     <ClCompile Include="Files.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="main.cpp" />
@@ -148,6 +149,7 @@
     <ClCompile Include="World.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="ColourManager.h" />
     <ClInclude Include="Files.h" />
     <ClInclude Include="Game.h" />
     <ClInclude Include="Snake.h" />
