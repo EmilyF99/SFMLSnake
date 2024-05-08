@@ -6,6 +6,11 @@ World::World(sf::Vector2u l_windSize) {
 	RespawnApple();
 	m_appleShape.setFillColor(sf::Color::Red);
 	m_appleShape.setRadius(m_blockSize / 2);
+
+	RespawnSpeedUp();
+	m_speedUp.setFillColor(sf::Color::Blue);
+	m_speedUp.setRadius(m_blockSize / 2);
+
 	for (int i = 0; i < 4; ++i) {
 		m_bounds[i].setFillColor(sf::Color::Green);
 		if (!((i + 1) % 2)) {
@@ -33,7 +38,19 @@ void World::RespawnApple() {
 		rand() % maxX + 1, rand() % maxY + 1);
 	m_appleShape.setPosition(m_item.x * m_blockSize,
 		m_item.y * m_blockSize);
+
 }
+
+void World::RespawnSpeedUp() {
+	int maxX = (m_windowSize.x / m_blockSize) - 2;
+	int maxY = (m_windowSize.y / m_blockSize) - 2;
+
+	m_item2 = sf::Vector2i(
+		rand() % maxX + 1, rand() % maxY + 1);
+	m_speedUp.setPosition(m_item2.x * m_blockSize,
+		m_item2.y * m_blockSize);
+}
+
 
 void World::Update(Snake& l_player) {
 	if (l_player.GetPosition() == m_item) 
@@ -41,6 +58,13 @@ void World::Update(Snake& l_player) {
 		l_player.Extend();
 		l_player.IncreaseScore();
 		RespawnApple();
+	}
+
+	if (l_player.GetPosition() == m_item2)
+	{
+		//Add speed code here 
+		l_player.IncreaseScore();
+		RespawnSpeedUp();
 	}
 	int gridSize_x = m_windowSize.x / m_blockSize;
 	int gridSize_y = m_windowSize.y / m_blockSize;
@@ -56,6 +80,7 @@ void World::Render(sf::RenderWindow& l_window) {
 		l_window.draw(m_bounds[i]);
 	}
 	l_window.draw(m_appleShape);
+	l_window.draw(m_speedUp);
 }
 
 int World::GetBlockSize() { return m_blockSize; }
