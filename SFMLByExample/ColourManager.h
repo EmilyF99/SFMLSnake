@@ -9,4 +9,7 @@ public:
 	static sf::Color LostLifeBorderColor() { return sf::Color::Red; }
 	void ChangeBorderColor(sf::Color color, World& world);
 	void ColourChange(World& world, sf::Time duration);
+
+private:
+	sf::Color m_lastColor;
 };
