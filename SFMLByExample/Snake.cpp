@@ -155,7 +155,6 @@ void Snake::CheckCollision() {
 		}
 	}
 }
-
 void Snake::Cut(int l_segments) 
 {
 	for (int i = 0; i < l_segments; ++i) 

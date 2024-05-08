@@ -19,7 +19,7 @@ void ColourManager::ColourChange(World& world, sf::Time duration)
         sf::Color::Blue,
         sf::Color::Yellow,
         sf::Color::Green
-        // Add more colors as needed
+        
     };
 
     // Select a random color from the list
