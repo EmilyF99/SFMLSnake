@@ -2,9 +2,10 @@
 #include "Window.h"
 #include "Textbox.h"
 #include "Files.h"
+#include "ColourManager.h"
 
 Game::Game() : m_window("Snake", sf::Vector2u(800, 600)),
-m_snake(m_world.GetBlockSize()), m_world(sf::Vector2u(800, 600)), m_file("scores.txt")
+m_snake(m_world.GetBlockSize()), m_world(sf::Vector2u(800, 600)), m_file("scores.txt"), m_colourManager()
 {
 	m_clock.restart();
 	m_file.LocateFile();
@@ -53,6 +54,7 @@ void Game::Update() {
 
 		if (m_snake.HasLost()) {
 			m_snake.LifeLost(m_file);
+			m_colourManager.ColourChange(m_world, sf::seconds(2)); // Change color for 2 seconds
 		}
 		
 	}
