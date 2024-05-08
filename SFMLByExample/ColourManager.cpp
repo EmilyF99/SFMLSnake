@@ -15,10 +15,11 @@ void ColourManager::ColourChange(World& world, sf::Time duration)
     // Define a list of possible colors
     std::vector<sf::Color> colors = {
         sf::Color::Red,
-        sf::Color::Green,
+        sf::Color::Magenta,
         sf::Color::Blue,
         sf::Color::Yellow,
-        // Add more colors as needed
+        sf::Color::Green
+        
     };
 
     // Select a random color from the list
