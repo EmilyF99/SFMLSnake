@@ -5,7 +5,7 @@ World::World(sf::Vector2u l_windSize) {
 	m_windowSize = l_windSize;
 	RespawnApple();
 	m_appleShape.setFillColor(sf::Color::Red);
-	m_appleShape.setRadius(m_blockSize / 2);
+	m_appleShape.setRadius(m_blockSize / 1.5);
 
 	RespawnSpeedUp();
 	m_speedUp.setFillColor(sf::Color::Blue);
@@ -63,7 +63,7 @@ void World::Update(Snake& l_player) {
 	if (l_player.GetPosition() == m_item2)
 	{ 
 		l_player.Extend();
-		l_player.IncreaseScore(15);
+		l_player.IncreaseScore(25);
 		l_player.IncreaseSpeed();
 		RespawnSpeedUp();
 	}
