@@ -11,6 +11,7 @@ public:
 	void RespawnApple();
 	void Update(Snake& l_player);
 	void Render(sf::RenderWindow& l_window);
+	sf::RectangleShape* getBounds() {return m_bounds;}
 private:
 	sf::Vector2u m_windowSize;
 	sf::Vector2i m_item;

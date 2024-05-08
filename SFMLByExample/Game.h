@@ -4,6 +4,7 @@
 #include "World.h"
 #include "Textbox.h"
 #include "Files.h"
+#include "ColourManager.h"
 
 class Game {
 public:
@@ -24,4 +25,5 @@ private:
 	Snake m_snake;
 	Textbox m_textbox;
 	Files m_file;
+	ColourManager m_colourManager;
 };
