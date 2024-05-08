@@ -56,14 +56,14 @@ void World::Update(Snake& l_player) {
 	if (l_player.GetPosition() == m_item) 
 	{
 		l_player.Extend();
-		l_player.IncreaseScore();
+		l_player.IncreaseScore(10);
 		RespawnApple();
 	}
 
 	if (l_player.GetPosition() == m_item2)
 	{
 		//Add speed code here 
-		l_player.IncreaseScore();
+		l_player.IncreaseScore(15);
 		RespawnSpeedUp();
 	}
 	int gridSize_x = m_windowSize.x / m_blockSize;

@@ -25,7 +25,7 @@ public:
 	sf::Vector2i GetPosition();
 	int GetLives();
 	int GetScore();
-	void IncreaseScore();
+	void IncreaseScore(int score);
 	bool HasLost();
 	void Lose(); // Handle losing here.
 	void ToggleLost();
@@ -48,4 +48,5 @@ private:
 	sf::RectangleShape m_bodyRect; // Shape used in rendering.
 	Files m_file;
 	Textbox m_textbox;
+	int m_scoreValue;
 };
