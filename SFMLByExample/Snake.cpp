@@ -65,6 +65,7 @@ sf::Vector2i Snake::GetPosition() {
 int Snake::GetLives() { return m_lives; }
 int Snake::GetScore() { return m_score; }
 void Snake::IncreaseScore(int score) { m_score += score; }
+void Snake::IncreaseSpeed() { m_speed += 2; }
 bool Snake::HasLost() { return m_lost; }
 void Snake::Lose() { m_lost = true; }
 void Snake::ToggleLost() { m_lost = !m_lost; }

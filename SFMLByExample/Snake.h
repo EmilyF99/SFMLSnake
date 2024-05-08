@@ -25,6 +25,7 @@ public:
 	sf::Vector2i GetPosition();
 	int GetLives();
 	int GetScore();
+	void IncreaseSpeed();
 	void IncreaseScore(int score);
 	bool HasLost();
 	void Lose(); // Handle losing here.
