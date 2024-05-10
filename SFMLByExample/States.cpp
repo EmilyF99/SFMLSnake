@@ -1,23 +1,23 @@
 #include "States.h"
 
-void StateControl()
+void States::StateControl()
 {
 	//Space for switch that controls game state
 }
 
-void GameStart()
+void States::GameStart()
 {
 	//blank start screen and text box draw 
 	//handle input for start (Such as press space to start) 
 
 }
 
-void GamePlay()
+void States::GamePlay()
 {
 	//code that calls the main game 
 }
 
-void GameOver()
+void States::GameOver()
 {
 	//Shows a game over text box
 	//Shows the score list 

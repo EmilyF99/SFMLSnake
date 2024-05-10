@@ -17,6 +17,7 @@ public:
 	Window* GetWindow();
 	sf::Time GetElapsed();
 	void RestartClock();
+	void InitialTextBoxSetup();
 private:
 	Window m_window;
 	sf::Clock m_clock;

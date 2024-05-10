@@ -9,11 +9,7 @@ m_snake(m_world.GetBlockSize()), m_world(sf::Vector2u(800, 600)), m_file("scores
 {
 	m_clock.restart();
 	m_file.LocateFile();
-	m_textbox.Setup(5, 14, 350, sf::Vector2f(225, 0));
-	srand(time(nullptr));
-	m_textbox.Add("Seeded random number generator with: " + std::to_string(time(NULL)));
-	m_textbox.Add("\nLives: " + std::to_string(m_snake.GetLives()));
-	m_textbox.Add("\nScore: " + std::to_string(m_snake.GetScore()));
+	InitialTextBoxSetup();
 }
 
 Game::~Game() { }
@@ -73,4 +69,12 @@ void Game::Render() {
 	m_snake.Render(*m_window.GetRenderWindow());
 	m_textbox.Render(*m_window.GetRenderWindow());
 	m_window.EndDraw();
+}
+
+void Game::InitialTextBoxSetup() {
+	m_textbox.Setup(5, 20, 350, sf::Vector2f(225, 0));
+	srand(time(nullptr));
+	m_textbox.Add("Seeded random number generator with: " + std::to_string(time(NULL)));
+	m_textbox.Add("\nLives: " + std::to_string(m_snake.GetLives()));
+	m_textbox.Add("\nScore: " + std::to_string(m_snake.GetScore()));
 }
