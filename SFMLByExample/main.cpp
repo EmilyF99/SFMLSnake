@@ -5,6 +5,7 @@
 #include "World.h"
 #include "Game.h"
 #include "Textbox.h"
+#include "States.h"
 #include <vector>
 #include <string>
 
