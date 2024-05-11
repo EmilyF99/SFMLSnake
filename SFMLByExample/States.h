@@ -1,4 +1,5 @@
 #pragma once
+#include "Textbox.h"
 
 enum states {
 	STATE_START,
@@ -8,10 +9,11 @@ enum states {
 
 class States {
 public:
-	void StateControl();
+	void StateControl(states m_currentState);
 	void GameStart();
 	void GamePlay();
 	void GameOver();
 private:
 	states m_currentState;
+	Textbox m_textbox;
 };

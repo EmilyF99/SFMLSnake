@@ -9,7 +9,6 @@ m_snake(m_world.GetBlockSize()), m_world(sf::Vector2u(800, 600)), m_file("scores
 {
 	m_clock.restart();
 	m_file.LocateFile();
-	InitialTextBoxSetup();
 }
 
 Game::~Game() { }

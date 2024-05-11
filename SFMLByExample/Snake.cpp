@@ -1,6 +1,7 @@
 #include "Snake.h"
 #include <SFML/System.hpp>
 #include "Files.h"
+#include "States.h"
 
 Snake::Snake(int l_blockSize) : m_file("scores.txt"){
 	m_size = l_blockSize;
@@ -33,6 +34,7 @@ void Snake::LifeLost(Files& scoreFile) {
 		scoreFile.AddScore(GetScore()); // Add the score to the file
 		Lose();
 		Reset(); // Optionally reset the snake after losing all lives.
+		m_currentState.StateControl(STATE_GAME_OVER);
 	}
 	m_lost = false;
 

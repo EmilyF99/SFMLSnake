@@ -3,6 +3,7 @@
 #include <SFML/Graphics.hpp>
 #include "Textbox.h"
 #include "Files.h"
+#include "States.h"
 
 struct SnakeSegment {
 	SnakeSegment(int x, int y) : position(x, y) {}
@@ -50,4 +51,5 @@ private:
 	Files m_file;
 	Textbox m_textbox;
 	int m_scoreValue;
+	States m_currentState;
 };
