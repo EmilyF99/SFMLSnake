@@ -1,6 +1,6 @@
+#include "SFMLHeader.h"
 #include "Textbox.h"
-#include <SFML/System.hpp>
-#include <SFML/Graphics.hpp>
+
 
 Textbox::Textbox() {
 	Setup(5, 9, 200, sf::Vector2f(0, 0));

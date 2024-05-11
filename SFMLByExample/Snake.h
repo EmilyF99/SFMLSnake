@@ -1,6 +1,4 @@
 #pragma once
-#include <vector>
-#include <SFML/Graphics.hpp>
 #include "Textbox.h"
 #include "Files.h"
 #include "States.h"

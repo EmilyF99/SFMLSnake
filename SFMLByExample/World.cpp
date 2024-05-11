@@ -1,3 +1,4 @@
+#include "SFMLHeader.h"
 #include "World.h"
 
 World::World(sf::Vector2u l_windSize) {

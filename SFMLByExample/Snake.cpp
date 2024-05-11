@@ -1,5 +1,5 @@
+#include "SFMLHeader.h"
 #include "Snake.h"
-#include <SFML/System.hpp>
 #include "Files.h"
 #include "States.h"
 

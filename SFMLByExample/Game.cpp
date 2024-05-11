@@ -1,3 +1,5 @@
+#include "SFMLHeader.h"
+
 #include "Game.h"
 #include "Window.h"
 #include "Textbox.h"

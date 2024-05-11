@@ -1,5 +1,6 @@
+#include "defaultHeader.h"
+
 #include "States.h"
-#include <iostream>
 
 void States::StateControl(states m_currentState)
 {

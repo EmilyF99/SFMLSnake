@@ -1,6 +1,9 @@
+#include "defaultHeader.h"
+#include "SFMLHeader.h"
+//Circular Issue
 #include "ColourManager.h"
 #include "World.h"
-#include <random>
+
 
 void ColourManager::ChangeBorderColor(sf::Color color, World& world) 
 {
