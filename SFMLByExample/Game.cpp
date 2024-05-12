@@ -21,31 +21,44 @@ void Game::RestartClock() { m_elapsed += m_clock.restart().asSeconds(); }
 Window* Game::GetWindow() { return &m_window; }
 
 void Game::HandleInput() {
-	/*
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space))
-	{
-		states.StateControl(STATE_PLAY);
 
-	}
-	*/
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up)
-		&& m_snake.GetPhysicalDirection() != Direction::Down)
+	if (m_currentState == GameState::STATE_START)
 	{
-		m_snake.SetDirection(Direction::Up);
+		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space))
+		{
+			m_currentState = GameState::STATE_PLAY;
+		}
 	}
-	else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down)
-		&& m_snake.GetPhysicalDirection() != Direction::Up)
+	
+	if (m_currentState == GameState::STATE_PLAY)
 	{
-		m_snake.SetDirection(Direction::Down);
+		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up)
+			&& m_snake.GetPhysicalDirection() != Direction::Down)
+		{
+			m_snake.SetDirection(Direction::Up);
+		}
+		else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down)
+			&& m_snake.GetPhysicalDirection() != Direction::Up)
+		{
+			m_snake.SetDirection(Direction::Down);
+		}
+		else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left)
+			&& m_snake.GetPhysicalDirection() != Direction::Right)
+		{
+			m_snake.SetDirection(Direction::Left);
+		}
+		else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right)
+			&& m_snake.GetPhysicalDirection() != Direction::Left)
+			m_snake.SetDirection(Direction::Right);
 	}
-	else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left)
-		&& m_snake.GetPhysicalDirection() != Direction::Right)
+
+	if (m_currentState == GameState::STATE_GAME_OVER)
 	{
-		m_snake.SetDirection(Direction::Left);
+		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space))
+		{
+			m_currentState = GameState::STATE_PLAY;
+		}
 	}
-	else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right)
-		&& m_snake.GetPhysicalDirection() != Direction::Left)
-		m_snake.SetDirection(Direction::Right);
 }
 
 void Game::Update() {
