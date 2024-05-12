@@ -144,7 +144,6 @@
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Snake.cpp" />
-    <ClCompile Include="States.cpp" />
     <ClCompile Include="Textbox.cpp" />
     <ClCompile Include="Window.cpp" />
     <ClCompile Include="World.cpp" />
@@ -156,7 +155,6 @@
     <ClInclude Include="Game.h" />
     <ClInclude Include="SFMLHeader.h" />
     <ClInclude Include="Snake.h" />
-    <ClInclude Include="States.h" />
     <ClInclude Include="Textbox.h" />
     <ClInclude Include="Window.h" />
     <ClInclude Include="World.h" />
