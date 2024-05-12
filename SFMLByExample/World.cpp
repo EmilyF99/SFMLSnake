@@ -1,5 +1,6 @@
 #include "SFMLHeader.h"
 #include "World.h"
+#include "Snake.h"
 
 World::World(sf::Vector2u l_windSize) {
 	m_blockSize = 16;

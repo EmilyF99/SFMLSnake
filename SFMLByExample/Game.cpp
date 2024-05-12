@@ -74,7 +74,7 @@ void Game::Render() {
 
 void Game::InitialTextBoxSetup() {
 	m_textbox.Setup(5, 20, 350, sf::Vector2f(225, 0));
-	srand(time(nullptr));
+	srand(static_cast<unsigned int>(time(nullptr)));
 	m_textbox.Add("Seeded random number generator with: " + std::to_string(time(NULL)));
 	m_textbox.Add("\nLives: " + std::to_string(m_snake.GetLives()));
 	m_textbox.Add("\nScore: " + std::to_string(m_snake.GetScore()));
