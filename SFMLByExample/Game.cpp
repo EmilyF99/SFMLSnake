@@ -56,6 +56,7 @@ void Game::HandleInput() {
 	{
 		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space))
 		{
+			m_snake.ResetStats();
 			m_currentState = GameState::STATE_PLAY;
 		}
 	}
