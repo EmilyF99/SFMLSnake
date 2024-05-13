@@ -41,4 +41,32 @@ void Files::AddScore(int score) {
     std::cout << "\nData added to file";
     file.close();
 }
-void SearchScore();
+void Files::SearchScore()
+{
+    std::ifstream file(m_fileName);
+    int score;
+
+    std::vector<int> scores;
+    while (file >> score) {
+        scores.push_back(score);
+    }
+    file.close();
+
+    std::sort(scores.rbegin(), scores.rend()); // Sort scores in descending order
+
+    if (scores.size() > 5) {
+        scores.erase(scores.begin() + 5, scores.end()); // Keep only the top 5 scores
+    }
+
+    SaveTopScores(scores);
+}
+
+void Files::SaveTopScores(const std::vector<int>& scores)
+{
+    std::ofstream file(m_fileName);
+  
+    for (int score : scores) {
+        file << score << " ";
+    }
+    file.close();
+}
