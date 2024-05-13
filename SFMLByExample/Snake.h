@@ -29,7 +29,8 @@ public:
 	void Lose(); // Handle losing here.
 	void ToggleLost();
 	void Extend(); // Grow the snake.
-	void Reset(); // Reset to starting position.
+	void ResetPosition();
+	void ResetStats();
 	void Move(); // Movement method.
 	void Tick(); // Update method.
 	void Cut(int l_segments); // Method for cutting snake.

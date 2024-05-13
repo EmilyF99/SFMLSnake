@@ -78,8 +78,8 @@ void Game::Update() {
 
 		if (m_snake.GetLives() <= 0)
 		{
-			m_currentState = GameState::STATE_START;
-		}
+			m_currentState = GameState::STATE_GAME_OVER;
+		} 
 		
 	}
 }
