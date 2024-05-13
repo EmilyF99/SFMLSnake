@@ -150,8 +150,10 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ColourManager.h" />
+    <ClInclude Include="defaultHeader.h" />
     <ClInclude Include="Files.h" />
     <ClInclude Include="Game.h" />
+    <ClInclude Include="SFMLHeader.h" />
     <ClInclude Include="Snake.h" />
     <ClInclude Include="Textbox.h" />
     <ClInclude Include="Window.h" />

@@ -1,6 +1,7 @@
+#include "defaultHeader.h"
+
 #include "Files.h"
-#include <fstream>
-#include <iostream>
+
 
 Files::Files(const std::string& fileName) : m_fileName(fileName)
 {

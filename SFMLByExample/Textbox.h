@@ -1,7 +1,6 @@
 #pragma once
-#include <vector>
-#include <string>
-#include <SFML/Graphics.hpp> 
+#include "defaultHeader.h"
+#include "SFMLHeader.h"
 
 using MessageContainer = std::vector<std::string>;
 class Textbox {

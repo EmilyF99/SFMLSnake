@@ -1,19 +1,25 @@
+#include "SFMLHeader.h"
 #include "Snake.h"
-#include <SFML/System.hpp>
 #include "Files.h"
 
 Snake::Snake(int l_blockSize) : m_file("scores.txt"){
 	m_size = l_blockSize;
 	m_bodyRect.setSize(sf::Vector2f(m_size - 1, m_size - 1));
-	Reset();
+	ResetPosition();
+	ResetStats();
 }
 Snake::~Snake() {}
 
-void Snake::Reset() {
+void Snake::ResetPosition()
+{
 	m_snakeBody.clear();
 	m_snakeBody.push_back(SnakeSegment(5, 7));
 	m_snakeBody.push_back(SnakeSegment(5, 6));
 	SetDirection(Direction::None); // Start off still.
+}
+
+void Snake::ResetStats()
+{
 	m_speed = 15;
 	m_lives = 3;
 	m_score = 0;
@@ -27,12 +33,12 @@ void Snake::LifeLost(Files& scoreFile) {
 	
 	--m_lives;
 	if (m_lives == 0) {
-		m_textbox.Add("\nGAME OVER! Score: " + std::to_string((long long)GetScore()));
-
 		scoreFile.LocateFile(); // Ensure the file exists
 		scoreFile.AddScore(GetScore()); // Add the score to the file
 		Lose();
-		Reset(); // Optionally reset the snake after losing all lives.
+		ResetPosition();
+		//Reset(); // Optionally reset the snake after losing all lives.
+		//need to change so it just resets position then only reset if space is pressed in game over
 	}
 	m_lost = false;
 
