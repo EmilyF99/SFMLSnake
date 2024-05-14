@@ -70,3 +70,22 @@ void Files::SaveTopScores(const std::vector<int>& scores)
     }
     file.close();
 }
+
+std::vector<int> Files::GetTopScores() {
+    std::ifstream file(m_fileName);
+    int score;
+
+    std::vector<int> scores;
+    while (file >> score) {
+        scores.push_back(score);
+    }
+    file.close();
+
+    std::sort(scores.rbegin(), scores.rend());
+
+    if (scores.size() > 3) {
+        scores.erase(scores.begin() + 3, scores.end());
+    }
+
+    return scores;
+}

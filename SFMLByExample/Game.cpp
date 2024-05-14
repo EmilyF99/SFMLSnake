@@ -114,7 +114,7 @@ void Game::Render() {
 void Game::MainGameText() 
 {
 	srand(static_cast<unsigned int>(time(nullptr)));
-	m_textbox.Add("Seeded random number generator with: " + std::to_string(time(NULL)));
+	//m_textbox.Add("Seeded random number generator with: " + std::to_string(time(NULL)));
 	m_textbox.Add("\nLives: " + std::to_string(m_snake.GetLives()));
 	m_textbox.Add("\nScore: " + std::to_string(m_snake.GetScore()));
 }
@@ -127,6 +127,13 @@ void Game::StartGameText()
 void Game::GameOverText()
 {
 	m_textbox.Add("\nGAME OVER\nPress Space to Restart.");
-	m_textbox.Add("\nTop Five Scores: ");
+	m_textbox.Add("\nTop Three Scores: ");
 	//get scores here 
+
+	std::vector<int> topScores = m_file.GetTopScores();
+	int rank = 1;
+	for (int score : topScores) {
+		m_textbox.Add(std::to_string(rank) + ". " + std::to_string(score) + ",");
+		rank++;
+	}
 }
