@@ -7,21 +7,20 @@ World::World(sf::Vector2u l_windSize) {
 	m_windowSize = l_windSize;
 	RespawnApple();
 	m_appleShape.setFillColor(sf::Color::Red);
-	m_appleShape.setRadius(m_blockSize / 1.75);
-
+	m_appleShape.setRadius(static_cast<float>(m_blockSize / 1.75));
 	RespawnSpeedUp();
 	m_speedUp.setFillColor(sf::Color::Blue);
-	m_speedUp.setRadius(m_blockSize / 2);
+	m_speedUp.setRadius(static_cast<float>(m_blockSize / 2));
 
 	for (int i = 0; i < 4; ++i) {
 		m_bounds[i].setFillColor(sf::Color::Green);
 		if (!((i + 1) % 2)) {
-			m_bounds[i].setSize(sf::Vector2f(m_windowSize.x,
-				m_blockSize));
+			m_bounds[i].setSize(sf::Vector2f(static_cast<float>(m_windowSize.x),
+				static_cast<float>(m_blockSize)));
 		}
 		else {
-			m_bounds[i].setSize(sf::Vector2f(m_blockSize,
-				m_windowSize.y));
+			m_bounds[i].setSize(sf::Vector2f(static_cast<float>(m_blockSize),
+				static_cast<float>(m_windowSize.y)));
 		}if (i < 2) {
 			m_bounds[i].setPosition(0, 0);
 		}
@@ -38,8 +37,8 @@ void World::RespawnApple() {
 	int maxY = (m_windowSize.y / m_blockSize) - 2;
 	m_item = sf::Vector2i(
 		rand() % maxX + 1, rand() % maxY + 1);
-	m_appleShape.setPosition(m_item.x * m_blockSize,
-		m_item.y * m_blockSize);
+	m_appleShape.setPosition(static_cast<float>(m_item.x * m_blockSize),
+		static_cast<float>(m_item.y * m_blockSize));
 
 }
 
@@ -49,8 +48,8 @@ void World::RespawnSpeedUp() {
 
 	m_item2 = sf::Vector2i(
 		rand() % maxX + 1, rand() % maxY + 1);
-	m_speedUp.setPosition(m_item2.x * m_blockSize,
-		m_item2.y * m_blockSize);
+	m_speedUp.setPosition(static_cast<float>(m_item2.x * m_blockSize),
+		static_cast<float>(m_item2.y * m_blockSize));
 }
 
 
