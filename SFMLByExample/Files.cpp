@@ -10,7 +10,7 @@ Files::Files(const std::string& fileName) : m_fileName(fileName)
 
 Files::~Files(){}
 
-void Files::CreateFile()
+void Files::CreateFile() const
 {
     std::ofstream file(m_fileName);
     // File created successfully
@@ -18,7 +18,7 @@ void Files::CreateFile()
     file.close();
 }
 
-void Files::LocateFile()
+void Files::LocateFile() const
 {
     std::ifstream file(m_fileName);
     bool fileExists = file.good();
@@ -29,7 +29,8 @@ void Files::LocateFile()
         CreateFile();
     }
 }
-void Files::AddScore(int score) {
+void Files::AddScore(int score) const
+{
     std::ofstream file;
     file.open(m_fileName, std::ios_base::app); // Open file in append mode
     if (!file.is_open())

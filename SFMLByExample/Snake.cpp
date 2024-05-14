@@ -4,7 +4,8 @@
 
 Snake::Snake(int l_blockSize) : m_file("scores.txt"){
 	m_size = l_blockSize;
-	m_bodyRect.setSize(sf::Vector2f(m_size - 1, m_size - 1));
+	m_bodyRect.setSize(sf::Vector2f(static_cast<float>(m_size - 1), 
+		static_cast<float>(m_size - 1)));
 	ResetPosition();
 	ResetStats();
 }
@@ -133,7 +134,7 @@ void Snake::Tick() {
 }
 
 void Snake::Move() {
-	for (int i = m_snakeBody.size() - 1; i > 0; --i) {
+	for (int i = static_cast<int>(m_snakeBody.size()) - 1; i > 0; --i) {
 		m_snakeBody[i].position = m_snakeBody[i - 1].position;
 	}
 	if (m_dir == Direction::Left) {
@@ -156,7 +157,7 @@ void Snake::CheckCollision() {
 	for (auto itr = m_snakeBody.begin() + 1;
 		itr != m_snakeBody.end(); ++itr) {
 		if (itr->position == head.position) {
-			int segments = m_snakeBody.end() - itr;
+			int segments = static_cast<int>(m_snakeBody.end() - itr);
 			Cut(segments);
 			break;
 		}
@@ -176,16 +177,16 @@ void Snake::Render(sf::RenderWindow& l_window) {
 	if (m_snakeBody.empty()) { return; }
 	auto head = m_snakeBody.begin();
 	m_bodyRect.setFillColor(sf::Color::Yellow);
-	m_bodyRect.setPosition(head->position.x * m_size,
-		head->position.y * m_size);
+	m_bodyRect.setPosition(head->position.x * static_cast<float>(m_size),
+		head->position.y * static_cast<float>(m_size));
 	l_window.draw(m_bodyRect);
 	m_bodyRect.setFillColor(sf::Color::Green);
 	int segmentCount = 0;
 	for (auto itr = m_snakeBody.begin() + 1;
 		itr != m_snakeBody.end(); ++itr)
 	{
-		m_bodyRect.setPosition(itr->position.x * m_size,
-			itr->position.y * m_size);
+		m_bodyRect.setPosition(itr->position.x * static_cast<float>(m_size),
+			itr->position.y * static_cast<float>(m_size));
 		if (++segmentCount % 5 == 0) {
 			m_bodyRect.setFillColor(sf::Color::Blue);
 		}
