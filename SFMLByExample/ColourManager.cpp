@@ -28,7 +28,7 @@ void ColourManager::ColourChange(World& world, sf::Time duration)
     // Select a random color from the list
     std::random_device rd;
     std::mt19937 gen(rd());
-    std::uniform_int_distribution<> dis(0, colors.size() - 1);
+    std::uniform_int_distribution<> dis(0, static_cast<int>(colors.size()) - 1);
 
     // Keep selecting until a different color is chosen
     sf::Color randomColor;
