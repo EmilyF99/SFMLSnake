@@ -18,12 +18,12 @@ The game at the end of the chapter has basic movement, a score counter and a lif
 - Added a Start and Game Over Screen, which utilises a basic Game State System.
 
 ## Gameplay Images 
-- Start Screenshot
+### Start Screenshot
 ![Snake 1](https://github.com/EmilyF99/SFMLSnake/assets/72047699/1d8e58a9-8e37-4c4e-ad4d-66c3c1b23184)
 
-- Gameplay Screenshot
+### Gameplay Screenshot
 ![Snake 3](https://github.com/EmilyF99/SFMLSnake/assets/72047699/cfd9d6b8-cb80-478c-90e2-34932144f25e)
 
-- Game Over Screenshot
+### Game Over Screenshot
 ![Snake 2](https://github.com/EmilyF99/SFMLSnake/assets/72047699/82f8e9c8-f506-47c0-b9a3-99e1f0f3d540)
 
