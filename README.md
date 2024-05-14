@@ -1,5 +1,9 @@
 # SFML By Example - Snake 
 
+
+https://github.com/EmilyF99/SFMLSnake/assets/72047699/01d79a3b-896c-4fec-a490-9df4db6f28a0
+
+
 ## Skills Used
 - ![C++](https://img.shields.io/badge/c++-%2300599C.svg?style=for-the-badge&logo=c%2B%2B&logoColor=white)
 - SFML Software Development Library 
