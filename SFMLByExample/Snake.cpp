@@ -37,6 +37,7 @@ void Snake::LifeLost(Files& scoreFile) {
 		scoreFile.AddScore(GetScore()); // Add the score to the file
 		Lose();
 		ResetPosition();
+		scoreFile.SearchScore();
 		//Reset(); // Optionally reset the snake after losing all lives.
 		//need to change so it just resets position then only reset if space is pressed in game over
 	}
